@@ -11,12 +11,23 @@ import turtle, time, random
 
 # Window
 wn = turtle.Screen()
-wn.setup(width=600, height=600)
+wn.setup(width=1440, height=800)
 wn.bgcolor("gray")
 wn.title("Reaction speed game")
 
 # Best reaction time preset
 best_react = 10000
+
+# Instruction
+rt = turtle.Turtle()
+rt.speed(0)
+rt.color("white")
+rt.penup()
+rt.hideturtle()
+rt.goto(-340, 0)
+instruction = """"s" = start
+"space" = stop"""
+rt.write(instruction, align="center", font=("calabri", 24, "normal"))
 
 # Reaction time
 rt = turtle.Turtle()
