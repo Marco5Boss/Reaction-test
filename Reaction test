@@ -1,0 +1,406 @@
+# Reaction speed game
+
+# How to play?
+# Press "s" key on your keyboard when you are ready
+# Countdown starts
+# Press space key when you see the last 2 rows of lights turn into darkgreen
+
+
+# Imports
+import turtle, time, random
+
+# Window
+wn = turtle.Screen()
+wn.setup(width=600, height=600)
+wn.bgcolor("gray")
+wn.title("Reaction speed game")
+
+# Best reaction time preset
+best_react = 10000
+
+# Reaction time
+rt = turtle.Turtle()
+rt.speed(0)
+rt.color("white")
+rt.penup()
+rt.hideturtle()
+rt.goto(0, 220)
+rt.write("Your time was _ s", align="center", font=("calabri", 24, "normal"))
+
+# Best reaction time
+brt = turtle.Turtle()
+brt.speed(0)
+brt.color("white")
+brt.penup()
+brt.hideturtle()
+brt.goto(0, 190)
+brt.write("Your best was _ s", align="center", font=("calabri", 24, "normal"))
+
+# Starting lights design
+
+
+# Rectangles
+
+# Rectangle 1
+rec1 = turtle.Turtle()
+rec1.speed(0)
+rec1.color("black")
+rec1.begin_fill()
+rec1.penup()
+rec1.goto(-240, 160)
+rec1.pendown()
+rec1.forward(80)
+rec1.right(90)
+rec1.forward(320)
+rec1.right(90)
+rec1.forward(80)
+rec1.right(90)
+rec1.forward(320)
+rec1.end_fill()
+rec1.hideturtle()
+
+# Rectangle 2
+rec2 = turtle.Turtle()
+rec2.speed(0)
+rec2.color("black")
+rec2.begin_fill()
+rec2.penup()
+rec2.goto(-140, 160)
+rec2.pendown()
+rec2.forward(80)
+rec2.right(90)
+rec2.forward(320)
+rec2.right(90)
+rec2.forward(80)
+rec2.right(90)
+rec2.forward(320)
+rec2.end_fill()
+rec2.hideturtle()
+
+# Rectangle 3
+rec3 = turtle.Turtle()
+rec3.speed(0)
+rec3.color("black")
+rec3.begin_fill()
+rec3.penup()
+rec3.goto(-40, 160)
+rec3.pendown()
+rec3.forward(80)
+rec3.right(90)
+rec3.forward(320)
+rec3.right(90)
+rec3.forward(80)
+rec3.right(90)
+rec3.forward(320)
+rec3.end_fill()
+rec3.hideturtle()
+
+# Rectangle 4
+rec4 = turtle.Turtle()
+rec4.speed(0)
+rec4.color("black")
+rec4.begin_fill()
+rec4.penup()
+rec4.goto(60, 160)
+rec4.pendown()
+rec4.forward(80)
+rec4.right(90)
+rec4.forward(320)
+rec4.right(90)
+rec4.forward(80)
+rec4.right(90)
+rec4.forward(320)
+rec4.end_fill()
+rec4.hideturtle()
+
+# Rectangle 5
+rec5 = turtle.Turtle()
+rec5.speed(0)
+rec5.color("black")
+rec5.begin_fill()
+rec5.penup()
+rec5.goto(160, 160)
+rec5.pendown()
+rec5.forward(80)
+rec5.right(90)
+rec5.forward(320)
+rec5.right(90)
+rec5.forward(80)
+rec5.right(90)
+rec5.forward(320)
+rec5.end_fill()
+rec5.hideturtle()
+
+# Lights
+
+
+# First row
+
+# First light
+li11 = turtle.Turtle()
+li11.speed(0)
+li11.shape("circle")
+li11.turtlesize(3)
+li11.color("darkgreen")
+li11.penup()
+li11.goto(-200, 120)
+
+# Second light
+li12 = turtle.Turtle()
+li12.speed(0)
+li12.shape("circle")
+li12.turtlesize(3)
+li12.color("darkgreen")
+li12.penup()
+li12.goto(-100, 120)
+
+# Third light
+li13 = turtle.Turtle()
+li13.speed(0)
+li13.shape("circle")
+li13.turtlesize(3)
+li13.color("darkgreen")
+li13.penup()
+li13.goto(0, 120)
+
+# Forth light
+li14 = turtle.Turtle()
+li14.speed(0)
+li14.shape("circle")
+li14.turtlesize(3)
+li14.color("darkgreen")
+li14.penup()
+li14.goto(100, 120)
+
+# Fifth light
+li15 = turtle.Turtle()
+li15.speed(0)
+li15.shape("circle")
+li15.turtlesize(3)
+li15.color("darkgreen")
+li15.penup()
+li15.goto(200, 120)
+
+# Second row
+
+# First light
+li21 = turtle.Turtle()
+li21.speed(0)
+li21.shape("circle")
+li21.turtlesize(3)
+li21.color("darkgreen")
+li21.penup()
+li21.goto(-200, 40)
+
+# Second light
+li22 = turtle.Turtle()
+li22.speed(0)
+li22.shape("circle")
+li22.turtlesize(3)
+li22.color("darkgreen")
+li22.penup()
+li22.goto(-100, 40)
+
+# Third light
+li23 = turtle.Turtle()
+li23.speed(0)
+li23.shape("circle")
+li23.turtlesize(3)
+li23.color("darkgreen")
+li23.penup()
+li23.goto(0, 40)
+
+# Forth light
+li24 = turtle.Turtle()
+li24.speed(0)
+li24.shape("circle")
+li24.turtlesize(3)
+li24.color("darkgreen")
+li24.penup()
+li24.goto(100, 40)
+
+# Fifth light
+li25 = turtle.Turtle()
+li25.speed(0)
+li25.shape("circle")
+li25.turtlesize(3)
+li25.color("darkgreen")
+li25.penup()
+li25.goto(200, 40)
+
+# Third row
+
+# First light
+li31 = turtle.Turtle()
+li31.speed(0)
+li31.shape("circle")
+li31.turtlesize(3)
+li31.color("darkgreen")
+li31.penup()
+li31.goto(-200, -40)
+
+# Second light
+li32 = turtle.Turtle()
+li32.speed(0)
+li32.shape("circle")
+li32.turtlesize(3)
+li32.color("darkgreen")
+li32.penup()
+li32.goto(-100, -40)
+
+# Third light
+li33 = turtle.Turtle()
+li33.speed(0)
+li33.shape("circle")
+li33.turtlesize(3)
+li33.color("darkgreen")
+li33.penup()
+li33.goto(0, -40)
+
+# Forth light
+li34 = turtle.Turtle()
+li34.speed(0)
+li34.shape("circle")
+li34.turtlesize(3)
+li34.color("darkgreen")
+li34.penup()
+li34.goto(100, -40)
+
+# Fifth light
+li35 = turtle.Turtle()
+li35.speed(0)
+li35.shape("circle")
+li35.turtlesize(3)
+li35.color("darkgreen")
+li35.penup()
+li35.goto(200, -40)
+
+# Forth row
+
+# First light
+li41 = turtle.Turtle()
+li41.speed(0)
+li41.shape("circle")
+li41.turtlesize(3)
+li41.color("darkgreen")
+li41.penup()
+li41.goto(-200, -120)
+
+# Second light
+li42 = turtle.Turtle()
+li42.speed(0)
+li42.shape("circle")
+li42.turtlesize(3)
+li42.color("darkgreen")
+li42.penup()
+li42.goto(-100, -120)
+
+# Third light
+li43 = turtle.Turtle()
+li43.speed(0)
+li43.shape("circle")
+li43.turtlesize(3)
+li43.color("darkgreen")
+li43.penup()
+li43.goto(0, -120)
+
+# Forth light
+li44 = turtle.Turtle()
+li44.speed(0)
+li44.shape("circle")
+li44.turtlesize(3)
+li44.color("darkgreen")
+li44.penup()
+li44.goto(100, -120)
+
+# Fifth light
+li45 = turtle.Turtle()
+li45.speed(0)
+li45.shape("circle")
+li45.turtlesize(3)
+li45.color("darkgreen")
+li45.penup()
+li45.goto(200, -120)
+
+# Loop
+while True:
+    wn.update()
+
+
+    # Starting
+    def start():
+
+        # The animation of countdown to the start
+        time.sleep(1)
+
+        li31.color("red")
+        li41.color("red")
+        time.sleep(1)
+
+        li32.color("red")
+        li42.color("red")
+        time.sleep(1)
+
+        li33.color("red")
+        li43.color("red")
+        time.sleep(1)
+
+        li34.color("red")
+        li44.color("red")
+        time.sleep(1)
+
+        li35.color("red")
+        li45.color("red")
+        wait_time = random.uniform(2, 6)
+        time.sleep(wait_time)
+
+        global start_time
+        start_time = time.time()
+
+        # The animation of lights out
+        li31.color("darkgreen")
+        li41.color("darkgreen")
+        li32.color("darkgreen")
+        li42.color("darkgreen")
+        li33.color("darkgreen")
+        li43.color("darkgreen")
+        li34.color("darkgreen")
+        li44.color("darkgreen")
+        li35.color("darkgreen")
+        li45.color("darkgreen")
+
+
+    # Departure
+    def end():
+        end_time = time.time()
+
+        reaction_time = end_time - start_time
+
+        # Reaction time and best reaction time update
+        global best_react
+        if reaction_time < best_react:
+            best_react = reaction_time
+
+            rt.clear()
+            rt.write("Your time was {} s".format(round(reaction_time, 5)), align="center",
+                     font=("calabri", 24, "normal"))
+
+            brt.clear()
+            brt.write("Your best was {} s".format(round(best_react, 5)), align="center", font=("calabri", 24, "normal"))
+
+        else:
+            rt.clear()
+            rt.write("Your time was {} s".format(round(reaction_time, 5)), align="center",
+                     font=("calabri", 24, "normal"))
+
+            brt.clear()
+            brt.write("Your best was {} s".format(round(best_react, 5)), align="center", font=("calabri", 24, "normal"))
+
+            # Controls
+
+
+    wn.listen()
+    wn.onkeypress(start, "s")
+    wn.onkeypress(end, "space")
+
+wn.mainloop()
